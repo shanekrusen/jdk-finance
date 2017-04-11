@@ -55,4 +55,8 @@ class IncomesController < ApplicationController
             @incomeyears[monthyear] = Hash[ @incomeyears[monthyear].sort_by { |key, val| key.to_s }.reverse! ]
         end
     end
+
+    def new
+    
+    end
 end
