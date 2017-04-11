@@ -1,0 +1,87 @@
+html, body {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+
+.body-wrapper {
+  padding: 0px;
+  margin: 0px  
+}
+
+.navbar {
+    height: 50px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+}
+
+.left-bar {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 25vw;
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    border-right: 1px solid lightgray;
+}
+
+.month-button {
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.right-bar {
+    position: fixed;
+    top: 50px;
+    left: 25vw;
+    width: 75vw;
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+}
+
+.right-bar-container {
+    margin-left:5px;
+    margin-right: 5px;
+}
+
+.day-box h2 {
+    width: auto;
+    display: inline-block;
+}
+
+.income-total {
+    display: inline-block;
+}
+
+.day-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.income-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.income-wrapper a,span {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    margin: 0px;
+}
+
+.income-wrapper span {
+    flex-grow: 1;
+}
+
+.income-price {
+    margin: 0px;
+}

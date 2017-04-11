@@ -1,0 +1,35 @@
+<div class="body-wrapper">
+    <div class="left-bar">
+        <% @monthyears.each do |year, months| %>
+            <div class="year-box">
+                <h1><%= year %></h1>
+                <% months.each do |month| %>
+                    <span class="month-button"><%= month %></span><br />
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="right-bar">
+        <div class="right-bar-container">
+            <% @incomeyears.each do |monthyear, days| %>
+                <div class="month-box">
+                    <h1><%= monthyear.to_s %></h1>
+                    <% days.each do |day, incomes| %>
+                        <div class="day-box">
+                            <div class="day-header">
+                                <h2><%= day.to_s %></h2><a class="income-total"></a>
+                            </div>
+                            <br />
+                            <% incomes.each do |income| %>
+                                <div class="income-wrapper">
+                                    <a class="income-category"><%= "#{income.category.name}" %></a><span class="income-price"><%= "#{income.value}" %></span><br />
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
