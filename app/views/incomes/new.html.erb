@@ -1,0 +1,26 @@
+<div style="width: 100vw; height: 50px;"></div>
+ 
+<div class="form-wrapper">
+    <h2>New Income Record</h2>
+    <br />
+    <%= form_for @income do |f|  %>
+        <div class="field">
+            <%= f.label :value %>
+            <%= f.number_field :value %>
+        </div>
+        <br />
+        <div class="field">
+            <%= f.label :category_id %>
+            <%= f.collection_select(:category_id, @categories, :id, :name) %>
+        </div>
+        <br />
+        <div class="field">
+            <%= f.label :date %>
+            <%= f.date_field :date, :value => Date.today.strftime('%Y-%m-%d') %>
+        </div>
+        <br />
+        <div class="actions">
+            <%= f.submit "Submit" %>
+        </div>
+    <% end %>
+</div>

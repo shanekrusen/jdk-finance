@@ -1,7 +1,9 @@
 class IncomesController < ApplicationController
+    before_action :authenticate_user!
+    
     def index
         @months = ["December", "November", "October", "September", "August", "July", "June", "May", "April", "March", "February", "January"]
-        @incomes = Income.all
+        @incomes = current_user.incomes.all
         @monthyears = { }
         @incomeyears = { }
 
@@ -57,6 +59,18 @@ class IncomesController < ApplicationController
     end
 
     def new
-    
+        @income = Income.new
+        @categories = current_user.categories.all
+    end
+
+    def create
+        @income = current_user.incomes.create(income_params)
+        redirect_to root_path
+    end
+
+    private
+
+    def income_params
+        params.require(:income).permit(:value, :category_id, :date)
     end
 end

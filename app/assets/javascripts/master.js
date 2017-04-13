@@ -25,4 +25,8 @@ $(document).ready(function() {
         var text = parseFloat($(this).text());
         $(this).text("$" + text.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
     });
+
+    $('.close').click(function() {
+        $(this).slideToggle();
+    });
 });
