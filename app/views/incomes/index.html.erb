@@ -22,8 +22,17 @@
                             </div>
                             <br />
                             <% incomes.each do |income| %>
+                                <% @color = Chroma.paint income.category.color %>
                                 <div class="income-wrapper">
-                                    <a class="income-category"><%= "#{income.category.name}" %></a><span class="income-price"><%= "#{income.value}" %></span><br />
+                                    <%= link_to "#{ income.category.name }", edit_income_path(income), class: "income-catgeory" %>
+                                    <div class="income-price-wrapper">
+                                        <% if @color.light? %>
+                                            <%= content_tag(:span, income.value, class: "income-price", style: "background-color: #{ @color.to_hex }") %>
+                                        <% else %>
+                                            <%= content_tag(:span, income.value, class: "income-price", style: "background-color: #{ @color.to_hex }; color: #FFFFFF") %>
+                                        <% end %>
+                                    </div>
+                                    <br />
                                 </div>
                             <% end %>
                         </div>

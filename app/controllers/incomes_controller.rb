@@ -68,6 +68,18 @@ class IncomesController < ApplicationController
         redirect_to root_path
     end
 
+    def edit
+        @income = Income.find(params[:id])
+        @categories = current_user.categories.all
+    end
+
+    def update
+        @income = Income.find(params[:id])
+
+        @income.update_attributes(income_params)
+        redirect_to root_path
+    end
+
     private
 
     def income_params

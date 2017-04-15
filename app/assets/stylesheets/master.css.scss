@@ -91,12 +91,20 @@ html, body {
     margin: 0px;
 }
 
-.income-wrapper span {
+.income-price-wrapper {
     flex-grow: 1;
+}
+
+.income-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .income-price {
     margin: 0px;
+    border-radius: 5px;
 }
 
 .notice {
