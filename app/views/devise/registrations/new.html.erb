@@ -7,20 +7,18 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone, autofocus: true %>
     </div>
     <br />
     <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+      <label for="user_password">PIN</label>
+      <br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <br />
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <label for="user_password">Confirm PIN</label>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
     <br />
