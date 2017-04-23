@@ -1,0 +1,31 @@
+<div style="width: 100vw; height: 50px;"></div>
+
+<div class="form-wrapper">
+    <h2>Sign Up</h2>
+    <br />
+    <%= form_for(:user, :url => { :controller => 'users', :action => 'create' } ) do |f| %>
+        <div class="field">
+            <%= f.label :phone_number %><br />
+            <%= f.text_field :phone_number, :maxlength => 10 %>
+        </div>
+        <br />
+        <div class="field">
+            <%= f.label :pin %><br />
+            <%= f.password_field :pin, :maxlength => 4 %>
+        </div>
+        <br />
+        <div class="field">
+            <%= f.label :confirm_pin %><br />
+            <%= f.password_field :confirm_pin, :maxlength => 4 %>
+        </div>
+        <br />
+        <%= f.submit :Signup %>
+    <% end %>
+    <% if @user.errors.any? %>
+        <ul class="Signup_Errors">
+        <% for message_error in @user.errors.full_messages %>
+            <li>* <%= message_error %></li>
+        <% end %>
+        </ul>
+    <% end %>
+</div>

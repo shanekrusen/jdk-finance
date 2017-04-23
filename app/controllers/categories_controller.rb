@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
-    before_action :authenticate_user!
+    before_filter :authenticate_user
 
     def new
         @category = Category.new
     end
 
     def create
-        @category = current_user.categories.create(category_params)
+        @category = @current_user.categories.create(category_params)
         redirect_to new_income_path
 end
 

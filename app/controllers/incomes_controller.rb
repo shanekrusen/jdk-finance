@@ -1,9 +1,9 @@
 class IncomesController < ApplicationController
-    before_action :authenticate_user!
+    before_filter :authenticate_user
     
     def index
         @months = ["December", "November", "October", "September", "August", "July", "June", "May", "April", "March", "February", "January"]
-        @incomes = current_user.incomes.all
+        @incomes = @current_user.incomes.all
         @monthyears = { }
         @incomeyears = { }
 
@@ -60,17 +60,17 @@ class IncomesController < ApplicationController
 
     def new
         @income = Income.new
-        @categories = current_user.categories.all
+        @categories = @current_user.categories.all
     end
 
     def create
-        @income = current_user.incomes.create(income_params)
+        @income = @current_user.incomes.create(income_params)
         redirect_to root_path
     end
 
     def edit
         @income = Income.find(params[:id])
-        @categories = current_user.categories.all
+        @categories = @current_user.categories.all
     end
 
     def update
