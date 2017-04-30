@@ -154,3 +154,45 @@ html, body {
     align-items: center;
     justify-content: center;
 }
+
+.report {
+    width: 100vw;
+}
+
+.report-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-graph-wrapper {
+    width: 75vw;
+    height: 30px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.report-graph-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.income {
+    height: 30px;
+    display:block;
+    border: 0px;
+}
+
+.report-body {
+    height: calc(100vh - 50px);
+    width: 100vw;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

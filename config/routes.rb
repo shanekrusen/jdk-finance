@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  get 'reports/weeks'
+
   root :to => "incomes#index"
 
   resources :categories

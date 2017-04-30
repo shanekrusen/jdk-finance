@@ -1,0 +1,28 @@
+<div style="width: 100vw; height: 50px;"></div>
+
+<div class="report-body">
+    <% @report_week_incomes.each do |year, weeks| %>
+        <div class="year">
+            <h1><%= year %></h1>
+            <% weeks.each do |week, categories| %>
+                <div class="report">
+                    <h1><%= week %></h1>
+                    <br />
+                    <br />
+                    <div class=report-wrapper>
+                        <div class="report-graph-wrapper">
+                            <%= content_tag :div, class: "report-graph-container", style: "width: #{ (@week_percent_of_biggest_week[year][week] * 100).to_s + '%' }" do |container| %>
+                                <% categories.each do |category, total| %>
+                                    <%= content_tag :div, class: "income", style: "background-color: #{ '#' + category.color }; width: #{ (@category_percent_of_week_total[year][week][category] * 100).to_s + '%' }", data: {cat_total: total} do |segment| %>
+
+                                    <% end %>
+                                <% end%>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            <% end %>
+        </div>
+    <% end %>
+</div>
