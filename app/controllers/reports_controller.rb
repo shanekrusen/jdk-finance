@@ -123,4 +123,8 @@ class ReportsController < ApplicationController
             end
         end
     end
+
+    def week
+        
+    end
 end
