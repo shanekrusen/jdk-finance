@@ -6,7 +6,7 @@ html, body {
 
 .body-wrapper {
   padding: 0px;
-  margin: 0px  
+  margin: 0px
 }
 
 .navbar {
@@ -17,9 +17,16 @@ html, body {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     z-index: 9999;
+}
+
+.log-out {
+  cursor: pointer;
+  margin-left: 5px;
+  color: #007aff;
+  font-weight: bold;
 }
 
 .new-income-button a {
