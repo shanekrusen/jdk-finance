@@ -19,9 +19,18 @@
     <% end %>
 
     <div class="navbar">
+      <p class="log-out">Log Out</p>
       <span class="new-income-button"><%= link_to "+", new_income_path %></span>
     </div>
-    
+
     <%= yield %>
   </body>
 </html>
+<script>
+  $(document).ready(function(){
+    $(".log-out").click(function(){
+      <% session.delete :user_id %>
+      window.location.href = "/"; 
+    });
+  });
+</script>
