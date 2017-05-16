@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates :pin, :confirmation => :true
     validates :pin, :format => NUMERICAL_REGEX, :length => { :is => 4 }, :on => create
     before_save :encrypt_pin
+    before_create { generate_token(:auth_token) }
     after_save :clear_pin
 
     def encrypt_pin
@@ -31,5 +32,11 @@ class User < ApplicationRecord
 
     def match_pin(login_pin="")
         encrypted_pin == BCrypt::Engine.hash_secret(login_pin, salt)
+    end
+
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
     end
 end

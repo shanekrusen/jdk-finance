@@ -19,7 +19,9 @@
     <% end %>
 
     <div class="navbar">
-      <p class="log-out">Log Out</p>
+      <div class="log-out">
+        <%= link_to "Log Out", log_out_path %>
+      </div>
       <span class="new-income-button"><%= link_to "+", new_income_path %></span>
     </div>
 
@@ -30,7 +32,7 @@
   $(document).ready(function(){
     $(".log-out").click(function(){
       <% session.delete :user_id %>
-      window.location.href = "/"; 
+      window.location.href = "/";
     });
   });
 </script>
