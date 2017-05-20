@@ -28,11 +28,3 @@
     <%= yield %>
   </body>
 </html>
-<script>
-  $(document).ready(function(){
-    $(".log-out").click(function(){
-      <% session.delete :user_id %>
-      window.location.href = "/";
-    });
-  });
-</script>
