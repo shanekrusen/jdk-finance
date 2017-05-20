@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
 html, body {
   overflow-x: hidden;
   padding: 0px;
   margin: 0px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
 }
 
 .body-wrapper {
@@ -29,6 +33,16 @@ html, body {
 }
 
 .log-out a, a:visited {
+  text-decoration: none;
+  color: #007aff;
+}
+
+.home-link {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.home-link a, a:visited {
   text-decoration: none;
   color: #007aff;
 }
@@ -69,6 +83,10 @@ html, body {
 .right-bar-container {
     margin-left:5px;
     margin-right: 5px;
+}
+
+.year-box {
+  margin-left: 5px;
 }
 
 .day-box h2 {
