@@ -7,9 +7,13 @@ class SessionsController < ApplicationController
   def login_attempt
     authorized_user = User.authenticate(params[:phone_number], params[:login_pin])
     if authorized_user
-      session[:user_id] = authorized_user.id
+      if params[:remember_me]
+        cookies.permanent[:auth_token] = authorized_user.auth_token
+      else
+        cookies[:auth_token] = authorized_user.auth_token
+      end
       flash[:notice] = "Successfully logged in."
-      redirect_to root_path
+      redirect_to incomes_path
     else
       flash[:notice] = "Invalid Username or Password"
       flash[:color]= "invalid"
@@ -24,5 +28,10 @@ class SessionsController < ApplicationController
   end
 
   def setting
+  end
+
+  def destroy
+    cookies.delete(:auth_token)
+    redirect_to root_path, flash[:notice] => "Logged out!"
   end
 end

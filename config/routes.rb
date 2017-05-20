@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/login'
 
-  get 'sessions/logout'
+  get "log_out" => "sessions#destroy", :as => "log_out"
 
   post 'sessions/login_attempt'
 

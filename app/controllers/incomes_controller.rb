@@ -1,6 +1,6 @@
 class IncomesController < ApplicationController
     before_filter :authenticate_user
-    
+
     def index
         @months = ["December", "November", "October", "September", "August", "July", "June", "May", "April", "March", "February", "January"]
         @incomes = @current_user.incomes.all
@@ -16,7 +16,7 @@ class IncomesController < ApplicationController
             @income_month_year_sym = income.date.strftime("%B %Y")
             @income_day = income.date.day.to_s
             @income_day_sym = income.date.day.to_s.to_sym
-            
+
             if !@monthyears[@income_year_sym]
                 @monthyears[@income_year_sym] = []
             end
@@ -24,7 +24,7 @@ class IncomesController < ApplicationController
             if !@monthyears[@income_year_sym].include?(@income_month)
                 @monthyears[@income_year_sym] << @income_month
             end
-        
+
             if !@incomeyears[@income_month_year_sym]
                 @incomeyears[@income_month_year_sym] = Hash.new
             end
