@@ -2,6 +2,7 @@
 
 <div class="form-wrapper">
     <h2>Update Income</h2>
+    <%= link_to 'Delete Income', income_path(@income), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'delete' %>
     <br />
     <%= form_for @income do |f| %>
         <div class="field">

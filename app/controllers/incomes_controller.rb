@@ -80,6 +80,17 @@ class IncomesController < ApplicationController
         redirect_to root_path
     end
 
+    def destroy
+        @income = Income.find(params[:id])
+
+        if @income.user != @current_user
+          return render text: 'Not Allowed', status: :forbidden
+        end
+
+        @income.destroy
+        redirect_to root_path
+    end
+
     private
 
     def income_params
