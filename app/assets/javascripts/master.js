@@ -29,4 +29,8 @@ $(document).ready(function() {
     $('.close').click(function() {
         $(this).slideToggle();
     });
+
+    $('.cancel').click(function() {
+        window.location.href = "/";
+    });
 });
